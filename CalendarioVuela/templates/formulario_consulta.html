@@ -15,9 +15,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: rgba(0, 0, 0, 0.2) url('{{ url_for("static", filename="fondo.png") }}') center center / cover no-repeat; /* Fondo con transparencia */
         }
-
         h1 {
             text-align: center;
             margin: 20px 0;
@@ -26,10 +25,11 @@
         .card {
             max-width: 400px;
             margin: 0 auto;
-            padding: 20px;
+            margin-top: 50px;
+            padding: 00px;
             background: #fff;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
 
         label {
@@ -43,13 +43,13 @@
 .card input[type="number"],
 .card input[type="tel"], /* Agregamos el tipo "tel" para el campo de teléfono */
 .card input[type="text"][name="fecha_nombre"], /* Añadimos una regla específica para el campo de fecha */
-.card select,
+
 .card button {
     width: 375px; /* Cambia esto a un valor específico, por ejemplo, "300px" o "15rem" */
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    border: 1px solid #e3e3e3;
+    border-radius: 20px;
     
 }
 
@@ -60,10 +60,7 @@
 }
         .card input[type="text"]:focus,
         .card input[type="number"]:focus,
-        .card select:focus {
-            border-color: #FFA500;
-            outline: none;
-        }
+        
 
         .card input[type="text"]:invalid,
         .card input[type="number"]:invalid {
@@ -108,11 +105,163 @@
             flex-direction: column;
         }
 
+
+
+/* Estilo para el dropdown (select) */
+.card select {
+    width: 375px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    position: relative;
+    appearance: none; /* Oculta la flecha del navegador */
+    -webkit-appearance: none; /* Para navegadores basados en WebKit (Chrome, Safari, etc.) */
+    -moz-appearance: none; /* Para navegadores basados en Gecko (Firefox) */
+}
+
+
+
+
+
+
+/* Estilo para el fondo del dropdown */
+.card select::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff; /* Color de fondo del dropdown */
+    z-index: -1; /* Asegura que el fondo esté detrás del contenido del dropdown */
+}
+
+/* Estilo para la flechita del dropdown */
+.card select::after {
+    content: '\25BC'; /* Carácter de flecha hacia abajo */
+    font-size: 1.5em; /* Tamaño de la flecha */
+    color: #555; /* Color de la flecha */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Evita que la flecha sea clickeable */
+}
+
+/* Estilo cuando el dropdown está enfocado */
+.card select:focus::before {
+    border-color: #FFA500;
+}
+
+/* Estilo cuando el dropdown está desactivado o no seleccionado */
+.card select:invalid {
+    border-color: #dc3545;
+}
+
+
+/* Agrega una clase específica para el dropdown con icono */
+.card .dropdown-icon {
+    position: relative;
+}
+
+/* Estilo para el dropdown (select) con icono */
+.card .dropdown-icon select {
+    width: 375px;
+    padding: 10px 30px 10px 10px; /* Ajusta el padding para dejar espacio al icono */
+    margin-bottom: 10px;
+    border: 1px solid #e3e3e3;
+    border-radius: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('{{ url_for("static", filename="flecha_abajo.png") }}') ; /* Ruta de tu icono */
+    background-position: right 5px center; /* Posición del icono (derecha, centrado verticalmente) */
+    background-repeat: no-repeat; /* Evita la repetición del icono */
+    background-size: 30px 30px;
+    background-color: rgb(206, 206, 206);
+}
+
+/* Estilo cuando el dropdown con icono está enfocado */
+.card .dropdown-icon select:focus {
+    border-color: #FFA500;
+}
+
+
+/*PARTE DE LA FECHA*/
+
+/* Agrega una clase específica para el campo de fecha con icono */
+.card .date-input-icon {
+    position: relative;
+}
+
+/* Estilo para el campo de entrada de fecha con icono */
+.card .date-input-icon input {
+    width: 375px;
+    padding: 10px 30px 10px 10px; /* Ajusta el padding para dejar espacio al icono */
+    margin-bottom: 10px;
+    border: 1px solid #e3e3e3;
+    border-radius: 20px;
+    box-sizing: border-box; /* Asegura que el ancho incluye el relleno y el borde */
+    background-image: url('{{ url_for("static", filename="flecha_abajo.png") }}'); /* Ruta de tu icono */
+    background-position: right 5px center; /* Posición del icono (derecha, centrado verticalmente) */
+    background-repeat: no-repeat; /* Evita la repetición del icono */
+    background-size: 30px 30px; /* Ajusta el ancho y alto del icono */
+    background-color: rgb(206, 206, 206);
+}
+
+/* Estilo cuando el campo de fecha con icono está enfocado */
+.card .date-input-icon input:focus {
+    border-color: #FFA500;
+}
+
+/*parte horarios*/
+/* Agrega una clase específica para el dropdown de horarios con icono */
+.card .schedule-dropdown-icon {
+    position: relative;
+}
+
+/* Estilo para el dropdown de horarios con icono */
+.card .schedule-dropdown-icon select {
+    width: 360px;
+    
+    padding: 10px 15px 10px 10px; /* Ajusta el padding para dejar espacio al icono */
+    margin-bottom: 10px;
+    border: 1px solid #e3e3e3;
+    border-radius: 40px;
+    box-sizing: border-box; /* Asegura que el ancho incluye el relleno y el borde */
+    background-image: url('{{ url_for("static", filename="flecha_abajo.png") }}'); /* Ruta de tu icono */
+    background-position: right 5px center; /* Posición del icono (derecha, centrado verticalmente) */
+    background-repeat: no-repeat; /* Evita la repetición del icono */
+    background-size: 30px 30px; /* Ajusta el ancho y alto del icono */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: rgb(206, 206, 206);
+}
+
+/* Estilo cuando el dropdown de horarios con icono está enfocado */
+.card .schedule-dropdown-icon select:focus {
+    border-color: #FFA500;
+}
+
+
+
         @media screen and (max-width: 600px) {
     .card * {
         width: 100%; /* Cambia esto a un valor específico, por ejemplo, "300px" o "15rem" */
         min-width: 400px; /* Establece el ancho mínimo de 400px */
     }
+
+    .central {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-left: -20px;
+            padding: 30px;
+            
+            
+        }
+
 
     .card input[type="text"],
     .card input[type="number"],
@@ -121,6 +270,9 @@
     .card select {
         width: 100%; /* Cambia esto a un valor específico, por ejemplo, "300px" o "15rem" */
         min-width: 400px; /* Establece el ancho mínimo de 400px */
+    }
+    .card select::before {
+        width: 100%; /* Ocupa todo el ancho del dropdown en pantallas pequeñas */
     }
     .logo {
         width: 100px;
@@ -141,7 +293,7 @@
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 20px;
     box-sizing: border-box; /* Esto asegura que el ancho incluye el relleno y el borde */
 }
 
@@ -153,20 +305,101 @@
     margin-top: 10px;
 }
 
+
+
+/* Estilo para la parte inferior */
+.card .parte_baja {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px; /* Ajusta según sea necesario */
+}
+
+/* Estilo para el logo a la izquierda */
+.card .logo_parte_baja {
+    width: 80px; /* Ajusta el ancho del logo según tus necesidades */
+    height: auto; /* Permite que la altura se ajuste proporcionalmente */
+    margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+/* Estilo para el botón de confirmación a la derecha */
+.card #btn-confirmar {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+    display: block; 
+    /* Asegura que el botón sea visible */
+    width: 115px; 
+    font-size: 16px;  /* Ajusta el tamaño de fuente según tus preferencias */
+    padding: 5px 10px; 
+    margin-right: 15px;
+    background: linear-gradient(to left, rgb(255, 125, 3), rgba(0, 234, 255, 0.595)), url('{{ url_for("static", filename="fondo_cuadrado_label.png") }}') center center / cover no-repeat; /* Fondo de degradado y ruta de la imagen */
+}
+
+
+
+
+
+/* Estilo para la parte superior */
+.card .parte_arriba {
+    position: center;
+    width: 100%;
+    height: 30px; /* Ajusta la altura según tus necesidades */
+    margin-bottom: 20px;
+    margin-top: 40px;
+    background: linear-gradient(to left, rgb(255, 125, 3), rgba(0, 234, 255, 0.595)), url('{{ url_for("static", filename="fondo_cuadrado_label.png") }}') center center / cover no-repeat; /* Fondo de degradado y ruta de la imagen */
+    text-align: center;
+    color: #fff; /* Color del texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para el texto en la parte superior */
+.card .parte_arriba h2 {
+    margin: 0;
+    font-size: 18px; /* Ajusta el tamaño del texto según tus necesidades */
+}
+
+
+.central {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-left: -20px;
+            padding: 30px;
+            
+            
+        }
+
+        .advertencia_baja{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 10px;
+            position: center;
+            text-align: center;
+            display: flex;
+    align-items: center;
+    justify-content: center;
+        }
     </style>
 </head>
 <body>
-    
-    <h1>Reserva tu visita</h1>
+
     <div class="card">
         <form id="consulta-form">
             
-            <input type="hidden" id="nombre" name="nombre" required class="form-select">
-            <input type="hidden" id="telefono" name="telefono" required class="form-select">
+           <div class="parte_arriba">
 
+            <h2>Reserva tu visita</h2>
+
+           </div>
+           <input type="hidden" id="nombre" name="nombre" required class="form-select">
+            <input type="hidden" id="telefono" name="telefono" required class="form-select">
+           <div class="central">
             <label for="cantidad">Cantidad de Participantes:</label>
 
-            <div class="input-group">
+            <div class="input-group dropdown-icon">
                 <select id="cantidad" name="cantidad" class="form-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -180,44 +413,32 @@
             <!-- Agrega el mensaje para reservas de 7 participantes o más -->
             <p class="reserva-mensaje">Para reservas de 7 participantes o más, envíanos un mensaje</p>
 
-            <label for="fecha">Fechas con disponibilidad:</label>
-            <input type="date" id="fecha" name="fecha_nombre" required class="form-control">
-
+            <div class="date-input-icon">
+                <label for="fecha">Fecha Disponible</label>
+                <input type="date" id="fecha" name="fecha_nombre" required class="form-control">
+            </div>
         </form>
 
-        <!-- Horarios disponibles -->
-        <h2 id="horarios-titulo" style="display:none;">Horarios disponibles:</h2>
-        <select id="horarios-libres" class="form-select" style="display:none;"></select>
+        <div class="schedule-dropdown-icon">
+            <!-- Horarios disponibles -->
+            <h3 id="horarios-titulo" >Horarios</h3>
+            <select id="horarios-libres" class="form-select"></select>
+        </div>
+        <div class="parte_baja">
+            <img src="static/logo_tunel2.png" alt="Logo" class="logo_parte_baja">
+            <!-- Botón de confirmación -->
+            <button type="button" id="btn-confirmar" class="btn btn-primary" onclick="redirigirAFormularioConsultaDatos()" >Siguiente</button>
 
-        <!-- Botón de confirmación -->
-        <button type="button" id="btn-confirmar" class="btn btn-primary" onclick="redirigirAFormularioConsultaDatos()" style="display:none;">Confirmar Selección</button>
-
+        </div>
         <!-- Mensaje de éxito (inicialmente oculto) -->
         <p id="mensaje-exito" style="display:none;">Cliente creado con éxito.</p>
     </div>
-    <script>
-        // Función para mostrar/ocultar elementos según la lógica requerida
-        function mostrarHorariosDisponibles() {
-            var horariosTitulo = document.getElementById('horarios-titulo');
-            var horariosLibres = document.getElementById('horarios-libres');
-            var btnConfirmar = document.getElementById('btn-confirmar');
-
-            // Obtener la fecha seleccionada
-            var fechaInput = document.getElementById('fecha');
-            var fechaSeleccionada = fechaInput.value;
-
-            // Condición para mostrar/ocultar elementos
-            if (fechaSeleccionada) {
-                horariosTitulo.style.display = 'block';
-                horariosLibres.style.display = 'block';
-                btnConfirmar.style.display = 'block';
-            } else {
-                horariosTitulo.style.display = 'none';
-                horariosLibres.style.display = 'none';
-                btnConfirmar.style.display = 'none';
-            }
-        }
-
+    
+        
+    </div>
+    <label class="advertencia_baja">Por favor, lee cuidadosamente los datos ingresados</label>
+   <script>
+    
         // Asociar la función a los cambios en el datepicker
         document.getElementById('fecha').addEventListener('change', function () {
             // Ejecutar consultarHorariosLibres al cambiar la fecha
@@ -230,7 +451,7 @@
             console.log("Consultando horarios libres...");
             // Lógica para consultar horarios libres
         }
-    </script>
+   </script>
     
     <script>
         // Inicializar flatpickr para seleccionar horas

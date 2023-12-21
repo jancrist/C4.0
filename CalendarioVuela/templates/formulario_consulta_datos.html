@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva tu Experiencia! - Vuela Tunel De Viento</title>
     <link rel="icon" href="static/logo_naranja.png" type="image/x-icon">
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
      
     <style>
@@ -28,36 +28,37 @@
 
         .card {
             background-color: #fff; /* Fondo blanco */
-            padding: 20px;
+           
             border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Sombras más pronunciadas */
-            text-align: center;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2); /* Sombras más pronunciadas */
+            text-align: left;
             max-width: 400px; /* Ancho máximo de la tarjeta */
-            border: 2px solid #FFA500; /* Borde naranja */
+            
         }
 
         /* Estilos para la tarjeta izquierda */
         .card-left {
-            background-color: #ffffff; /* Fondo naranja */
+            background-color: #d2d2d2; /* Fondo naranja */
             color: #000000; /* Texto blanco */
-            padding: 20px;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Sombras más pronunciadas */
-            text-align: center;
+            text-align: left;
             max-width: 300px; /* Ancho máximo de la tarjeta izquierda */
             display: flex;
             flex-direction: column;
             align-items: center;
-            border: 2px solid #FFA500; /* Borde naranja */
             
-            margin-right: 50px;
+            
+            margin-right: 10px;
         }
 
         /* Estilos para el logo en la tarjeta izquierda */
         .logo {
-            width: 130px; /* Tamaño del logo */
-            height: 100px; /* Tamaño del logo */
-            margin-bottom: 10px; /* Margen inferior */
+            margin-right: auto;
+            width: 50px; /* Tamaño del logo */
+            height: 40px; /* Tamaño del logo */
+            margin-bottom: 60px; /* Margen inferior */
         }
 
         /* Estilos para el título del formulario */
@@ -86,8 +87,9 @@
             margin-top: 5px; /* Espaciado vertical reducido */
             margin-bottom: 15px; /* Espaciado vertical reducido */
             border: 1px solid #ccc; /* Borde gris */
-            border-radius: 5px;
+            border-radius: 20px;
             font-size: 16px;
+            background-color: rgb(206, 206, 206);
         }
 
         /* Estilos para el botón del formulario */
@@ -147,6 +149,8 @@
 }
 
 .codigo-pais-container {
+ 
+ margin-right: 3px;  
   flex: 1; /* El contenedor de código de país se expandirá para llenar el espacio disponible */
 }
 .numero-container {
@@ -155,7 +159,8 @@
 
 .codigo-area-container,
 .numero-container {
-  flex: 1; /* Los contenedores de código de país, código de área y número se expandirán para llenar el espacio disponible */
+  
+    flex: 1; /* Los contenedores de código de país, código de área y número se expandirán para llenar el espacio disponible */
 }
 
 .telefono-container select,
@@ -163,31 +168,187 @@
   width: 100%; /* Asegura que los campos de entrada y el select ocupen todo el espacio disponible en sus contenedores */
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 20px;
+  background-color: rgb(206, 206, 206);
   margin: 0; /* Elimina cualquier margen predeterminado */
 }
 
 
 #codigo-area {
-  width: 50%; /* Establece un ancho del 50% para el campo de entrada "Código de Área" */
+  margin-right: 10px;
+    width: 78%; /* Establece un ancho del 50% para el campo de entrada "Código de Área" */
 }
 
+/* Estilo para la parte superior */
+.card .parte_arriba {
+    position: center;
+    width: 100%;
+    height: 40px; /* Ajusta la altura según tus necesidades */
+    margin-bottom: 20px;
+    margin-top: 40px;
+    background: linear-gradient(to left, rgb(255, 125, 3), rgba(0, 234, 255, 0.595)), url('{{ url_for("static", filename="fondo_cuadrado_label.png") }}') center center / cover no-repeat; /* Fondo de degradado y ruta de la imagen */
+    text-align: center;
+    color: #fff; /* Color del texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para el texto en la parte superior */
+.card .parte_arriba h2 {
+    margin: 0;
+    font-size: 18px; /* Ajusta el tamaño del texto según tus necesidades */
+}
+
+
+.central {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-left: 20px;
+    padding: 30px;
+    margin-right: 30px;
+    display: flex;  /* Utiliza flexbox para alinear los botones horizontalmente */
+    align-items: center;  /* Centra los elementos verticalmente */
+}
+
+
+  /* Estilo para la parte inferior */
+.card .parte_baja {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+
+
+/* Estilo para el botón de confirmación a la derecha */
+.card #btn-confirmar {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+    display: block; 
+    /* Asegura que el botón sea visible */
+    width: 115px; 
+    font-size: 16px;  /* Ajusta el tamaño de fuente según tus preferencias */
+    padding: 5px 10px; 
+    margin-right: 15px;
+    background: linear-gradient(to left, rgb(255, 125, 3), rgba(0, 234, 255, 0.595)), url('{{ url_for("static", filename="fondo_cuadrado_label.png") }}') center center / cover no-repeat; /* Fondo de degradado y ruta de la imagen */
+    border-radius: 15px;
+}
+
+/* Estilo para el enlace Volver */
+.central #enlace-volver {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: rgb(113, 113, 113); /* Color del enlace */
+    display: flex; /* Utiliza flexbox para alinear ícono y texto horizontalmente */
+    align-items: center; /* Centra ícono y texto verticalmente */
+}
+
+/* Estilo para el ícono dentro del enlace */
+.central #enlace-volver i {
+    margin-right: 5px; /* Espacio entre el ícono y el texto */
+}
+
+
+.parametro {
+    margin-bottom: 10px; /* Espaciado entre parámetros */
+}
+
+.parametro span {
+    display: inline-block; /* Para que el fondo gris se ajuste al contenido */
+    background-color: #e8e8e8; /* Color de fondo gris */
+   
+    border-radius: 15px; /* Bordes redondos */
+    padding: 5px 10px; /* Espaciado interno del span */
+    width: 200px;
+}
+
+h3 {
+    color: gray; /* Cambia "tu_color_h3" por el color deseado para h3 */
+}
+
+
+.parametro p {
+    color: rgb(128, 128, 128); /* Cambia "tu_color_p" por el color deseado para p */
+}
+.card p {
+    color: rgb(77, 76, 76); /* Cambia "tu_color_p" por el color deseado para p */
+}
+
+/* Estilo para el logo a la izquierda */
+.logo_parte_baja {
+    margin-right: auto;
+    width: 80px; /* Ajusta el ancho del logo según tus necesidades */
+    height: auto; /* Permite que la altura se ajuste proporcionalmente */
+    margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.logo_abajo{
+    margin-right: auto;
+}
+
+
+/* Estilos para el h3 específico dentro del contenedor */
+.codigo-area-container h3 {
+    margin-left: 10px; /* Espaciado a la izquierda del h3 */
+    color: gray; /* Cambia "tu_color_h3" por el color deseado para h3 */
+    font-size: 12px; /* Tamaño de fuente para h3 */
+    /* Otros estilos según tus necesidades */
+}
+/* Estilos para el h3 específico dentro del contenedor */
+.codigo-pais-container h3 {
+    margin-left: 10px; /* Espaciado a la izquierda del h3 */
+    color: gray; /* Cambia "tu_color_h3" por el color deseado para h3 */
+    font-size: 12px; /* Tamaño de fuente para h3 */
+    /* Otros estilos según tus necesidades */
+}
+/* Agrega estilos específicos para el h3 en el formulario-datos */
+#formulario-datos h3 {
+    margin-top: 10px; /* Espaciado superior */
+    color: gray; /* Cambia "tu_color_h3" por el color deseado para h3 */
+    font-size: 12px; /* Tamaño de fuente para h3 */
+    /* Otros estilos según tus necesidades */
+}
 
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card-left">
-            <img src="static/logo_tunel2.png" alt="Logo" class="logo">
-            <h2>Procesando reserva para el día:</h2>
+            <img src="static/logo_gris.png" alt="Logo" class="logo">
+            <h3>PROCESANDO RESERVA</h3>
             
-            <p><strong>Fecha:</strong> <span id="fecha">Fecha aquí</span></p>
-            <p><strong>Horario:</strong> <span id="horario"></span></p>
-            <p><strong>Cantidad de Participantes:</strong> <span id="cantidad">Fecha aquí</span></p>
+            <div class="parametro">
+                <p>Cantidad de Participantes</p>
+                <span id="cantidad">Cargando...</span>
+            </div>
+            
+            <div class="parametro">
+                <p>Fecha elegida</p>
+                <span id="fecha">Cargando...</span>
+            </div>
+            
+            <div class="parametro">
+                <p>Horario</p>
+                <span id="horario">Cargando...</span>
+            </div>
+
+            <div class= "logo_abajo">
+                <img src="static/logo_tunel.png" alt="Logo" class="logo_parte_baja">
+
+            </div>
+            
+        
             <!-- Agrega más etiquetas aquí según tus necesidades -->
         </div>
         <div class="card">
-            <h1>Completa tus datos</h1>
+            <div class="parte_arriba">
+
+                <h2>COMPLETA TUS DATOS</h2>
+    
+               </div>
+               <div class="central">
             <form id="formulario-datos">
                 
                 <p><strong>Nombre:</strong><input type="text" id="nombre" name="nombre"  ></p>
@@ -289,21 +450,29 @@
   <option value="+998">+998</option>
                         <!-- Agrega más opciones según sea necesario -->
                       </select>
+                      <h3>Ej:Arg</h3>
                     </div>
                     <div class="codigo-area-container">
-                      <input type="tel" id="codigo-area" name="codigo-area" placeholder="Ej: 11" required>
+                      <input type="tel" id="codigo-area" name="codigo-area" placeholder="Cod.Area" required>
+                        <h3>Ej:11</h3>
                     </div>
                     <div class="numero-container">
                       <input type="tel" id="numero" name="numero" placeholder="Número" required>
                     </div>
                   </div>
                   <p><strong>Email:</strong><input type="email" id="email" name="email" required></p>
+                  <h3>*Por favor lee cuidadosamente los datos ingresados</h3>
+                  <div class="parte_baja"> 
+                    <!-- Botón Volver -->
+                    
 
-
-                
-                
+                    <a href="#" id="enlace-volver" onclick="volverAtras()" class="btn btn-link btn-icon">
+                         <img src="static/fatras.png" alt="Volver" width="40" height="40"> Volver
+                    </a>
                 <button type="button" id="btn-confirmar" onclick="redirigirAReservaExitosa()">Confirmar</button>
+                  </div>
             </form>
+        </div>
             <!-- Puedes agregar otros elementos HTML según tus necesidades -->
         </div>
         <div class="qr-code" id="qr-code-div">
@@ -312,13 +481,19 @@
         
         
     </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-2eTFAcaGCs9YM8CB8zEefZdwPhTBrJNUtPQiKr7SPBR1tfpH1lMTFO7EXy3dej82t6ZP/bqZwPZ0ntCwMhDYkQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Incluye la librería QRCode.js para generar el código QR en el DOM -->
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/0.9.1/html2image.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
-
+<script>
+     function volverAtras() {
+        window.history.back();
+    }
+</script>
     <script>
         // Select the HTML element where you want to display the QR code
 const qrCodeDiv = document.getElementById("qr-code-div");
@@ -408,6 +583,7 @@ const emailOfuscado = toHex(email);
             // Token válido, redirige a la página de éxito
             crearCliente()
             enviarMensaje()
+            enviarMensajeCliente()
             window.location.href = `/reserva_exitosa?fecha=${fechaOfuscada}&horario=${horarioOfuscado}&cantidad=${cantidadOfuscada}&nombre=${nombreOfuscado}&telefono=${telefonoOfuscado}&dni=${dniOfuscado}&email=${emailOfuscado}`;
 
         } else {
@@ -419,7 +595,7 @@ const emailOfuscado = toHex(email);
     .catch(error => {
         console.error('Error al verificar el token:', error);
         // Redirige a la página de error en caso de error
-        window.location.href = '/error';
+        window.location.href = `/reserva_exitosa?fecha=${fechaOfuscada}&horario=${horarioOfuscado}&cantidad=${cantidadOfuscada}&nombre=${nombreOfuscado}&telefono=${telefonoOfuscado}&dni=${dniOfuscado}&email=${emailOfuscado}`;
     });
 }
 
@@ -553,6 +729,43 @@ const emailOfuscado = toHex(email);
             const mensaje = `Recibiste una nueva reserva de *${nombre}*,\nDNI: ${dni},\nCorreo Electrónico: ${email},\nTeléfono: ${telefono},\n${cantidad} Personas,\nFecha: ${fecha},\nHorario: ${horario} hrs.`;
 
             const phone = '5491151797471';
+
+            // Hacer la solicitud AJAX
+            fetch('/enviar_mensaje', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: mensaje,
+                    phone: phone
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Aquí puedes manejar la respuesta del servidor si es necesario
+            })
+            .catch(error => {
+                console.error('Error al enviar mensaje:', error);
+            });
+        }
+
+        function enviarMensajeCliente() {
+            
+            const nombre = encodeURIComponent(document.getElementById("nombre").value);
+            const dni = encodeURIComponent(document.getElementById("dni").value);
+            const codigoPais = document.getElementById("codigo-pais").value;
+            const codigoArea = document.getElementById("codigo-area").value;
+            const numero = document.getElementById("numero").value;
+            const email = document.getElementById("email").value;
+            const telefono = `${codigoPais}9${codigoArea}${numero}`;
+            const fecha = urlParams.get('fecha');
+            const horario = urlParams.get('horario');
+            // Construir el mensaje
+            const mensaje = `Reserva Exitosa! Vuela Tunel de viento\n\nTe esperamos el ${fecha} a las ${horario}. \n\n\n\n🗓️ Recordá que los valores son los publicados en vuela.com.ar al momento de la visita. Estos pueden variar sin previo aviso. \n\n👟👕 Asistir con ropa cómoda y zapatillas con cordones.\n\n❄️En época invernal es recomendable traer ropa de abrigo para dejar puesta debajo del traje de vuelo.\n\n🌧️ Con mal tiempo abrimos igual pero siempre si llueve muy fuerte no es recomendable hacer la actividad, atrasamos o reprogramamos los turnos.\n\n🙏🏻 En el caso de no poder asistir te pedimos por favor que nos avises con anticipación, ya que nos manejamos con turnos programados.\n\nGracias. 😁`;
+
+            const phone = telefono.slice(1);
 
             // Hacer la solicitud AJAX
             fetch('/enviar_mensaje', {

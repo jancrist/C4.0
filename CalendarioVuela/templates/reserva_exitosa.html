@@ -26,21 +26,21 @@
         .container {
             display: flex;
             justify-content: space-between; /* Colocar tarjetas en lados opuestos */
-            max-width: 800px; /* Ancho máximo del contenedor */
+            max-width: 900px; /* Ancho máximo del contenedor */
             width: 100%; /* Asegurar ancho total en dispositivos pequeños */
         }
 
         /* Estilos para la tarjeta izquierda */
         .left-card {
-            background-color: #fff; /* Fondo blanco */
-            max-width: 500px;
+            background-color: #e9e9e9; /* Fondo blanco */
+            max-width: 450px;
             padding: 50px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Sombras más pronunciadas */
             text-align: center; /* Alineación a la izquierda del texto */
             flex: 1; /* Ocupar el espacio restante en el contenedor */
             margin-right: 50px;
-            border: 2px solid #FFA500; /* Borde naranja */
+            
             display: flex; /* Activa el uso de flexbox para alinear verticalmente */
             flex-direction: column; /* Apila los elementos verticalmente */
             justify-content: center; /* Alinea verticalmente al centro */
@@ -50,19 +50,19 @@
         /* Estilos para la tarjeta derecha */
         .right-card {
             background-color: #fff; /* Fondo blanco */
-            max-width: 400px;
-            padding: 50px;
+            max-width: 450px;
+            
             border-radius: 10px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Sombras más pronunciadas */
-            text-align: center;
+            text-align: left;
             flex: 1; /* Ocupar el espacio restante en el contenedor */
-            border: 2px solid #FFA500; /* Borde naranja */
+            
         }
 
         /* Estilos para el logotipo */
         .logo {
-            width: 100px; /* Tamaño del logotipo */
-            height: 75px;
+            width: 150px; /* Tamaño del logotipo */
+            height: 150px;
             margin-bottom: 20px;
         }
 
@@ -74,7 +74,7 @@
         }
 /* Estilos para el título */
 h2 {
-            color: #FFA500; /* Texto naranja */
+            color: rgb(255, 255, 255); /* Texto naranja */
             font-size: 24px; /* Tamaño de fuente más grande */
             margin-bottom: 20px; /* Margen inferior reducido */
         }
@@ -94,12 +94,14 @@ h2 {
             margin-top: 20px;
             display: flex;
             justify-content: center; /* Centrar horizontalmente */
+            margin-bottom: 50px;
+            
         }
 
         /* Estilos para el código QR */
         canvas {
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
         }
 
         /* Estilos para la lista de elementos en la tarjeta izquierda */
@@ -121,10 +123,10 @@ h2 {
         }
 
         .button {
-            background-color: #FFA500;
+            background-color: #999999;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 15px;
             padding: 10px 20px;
             cursor: pointer;
         }
@@ -166,23 +168,79 @@ h2 {
         /* Estilos para el mensaje de envío del comprobante */
         .share-button {
             font-size: 14px; /* Tamaño de fuente pequeño */
-            color: #999; /* Color gris claro (#999 es un ejemplo, puedes ajustar el valor de color según tus preferencias) */
+            color: rgb(255, 91, 3); /* Color gris claro (#999 es un ejemplo, puedes ajustar el valor de color según tus preferencias) */
             margin-top: 10px; /* Espacio superior para separarlo de los datos de la reserva */
+            
+    margin-left: 50px; /* Ajusta el valor según la separación deseada */
+
         }
+
+
+
+
+        
+/* Estilo para la parte superior */
+.right-card .parte_arriba {
+    position: center;
+    width: 100%;
+    height:40px; /* Ajusta la altura según tus necesidades */
+    margin-bottom: 20px;
+    margin-top: 40px;
+    background: linear-gradient(to left, rgb(255, 125, 3), rgba(0, 234, 255, 0.595)), url('{{ url_for("static", filename="fondo_cuadrado_label.png") }}') center center / cover no-repeat; /* Fondo de degradado y ruta de la imagen */
+    text-align: center;
+    color: #fff; /* Color del texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para el texto en la parte superior */
+.right-card .parte_arriba h2 {
+    margin: 0;
+    font-size: 18px; /* Ajusta el tamaño del texto según tus necesidades */
+}
+
+.central {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-left: -20px;
+            padding: 30px;
+            
+            
+        }
+       .left-card h2 {
+            color: rgb(255, 91, 3); /* Texto naranja */
+            font-size: 24px; /* Tamaño de fuente más grande */
+            margin-bottom: 20px; /* Margen inferior reducido */
+        }
+
+
+        /* Agrega estilos específicos para el párrafo dentro de left-card */
+.left-card .orange-text {
+    color:  rgb(255, 91, 3); /* Cambia "orange" por el color naranja deseado */
+    /* Otros estilos según tus necesidades */
+}
+
+.central p {
+    margin-left: 50px; /* Ajusta el valor según la separación deseada */
+    color: #5d5d5d;
+}
     </style>
 </head>
 <body>
     <div class="container">
         <div class="left-card">
-            <img src="static/logo_naranja.png" alt="Logotipo" class="logo">
+            <img src="static/calendario.png" alt="Logotipo" class="logo">
             
-            <h2>¡Reserva Exitosa!</h2>
+            <h2>¡RESERVA EXITOSA!</h2>
+            
+            <p class="orange-text">Los esperamos para volar!</p>
             <p>Recordá que los valores son los publicados en vuela.com.ar al momento de la visita. Estos pueden variar sin previo aviso.</p>
-            <p>No te olvides de asistir con zapatillas con cordones y ropa comoda.En época invernal, es recomendable traer ropa de abrigo para dejar puesta debajo del traje de vuelo.</p>
+            
          
             
             
-            <p>Desea abonar ahora?</p>
+            <p>Queres pagar ahora?</p>
             <div class="button-container">
                 
                 <button class="button" id="btn-pagar-ahora" onclick="window.location.href='https://www.vuela.com.ar/preparate-para-volar.php?#tarifas'">Pagar ahora</button>
@@ -194,7 +252,12 @@ h2 {
             
             
             <!-- Título -->
-            <h1>Comprobante de reserva</h1>
+            <div class="parte_arriba">
+
+                <h2>COMPROBANTE DE RESERVA</h2>
+    
+               </div>
+               <div class="central">
             <div class="qr-code" id="qr-code"></div>
             <!-- Datos de la reserva -->
             <p><strong>Nombre:</strong> <span id="nombre"></span></p>
@@ -209,8 +272,9 @@ h2 {
             
             <!-- Botón de compartir por WhatsApp -->
             <div class="share-button">
-                Le hemos enviado el comprobante de reserva por correo electrónico.
+                Hemos enviado tu reserva por email y por Whatsapp!
             </div>
+        </div>
 
         </div>
     </div>
@@ -275,7 +339,7 @@ function sendImageToServer(imageDataUrl, destinatario) {
     const datosCorreo = {
         to: destinatario,
         asunto: 'Reserva Exitosa! Vuela - Tunel de viento',
-        mensaje: 'Recibimos tu Reserva Exitosamente!\n\n\nRecordá que los valores son los publicados en vuela.com.ar al momento de la visita.\nEstos pueden variar sin previo aviso. No te olvides de asistir con zapatillas con cordones y ropa comoda.\nEn época invernal, es recomendable traer ropa de abrigo para dejar puesta debajo del traje de vuelo.\nAdjunto encontrarás el comprobante de reserva.',
+        mensaje: 'Reserva Exitosa! Vuela Tunel de viento\n\n\n\n\n\n🗓️ Recordá que los valores son los publicados en vuela.com.ar al momento de la visita. Estos pueden variar sin previo aviso. \n\n👟👕 Asistir con ropa cómoda y zapatillas con cordones.\n\n❄️En época invernal es recomendable traer ropa de abrigo para dejar puesta debajo del traje de vuelo.\n\n🌧️ Con mal tiempo abrimos igual pero siempre si llueve muy fuerte no es recomendable hacer la actividad, atrasamos o reprogramamos los turnos.\n\n🙏🏻 En el caso de no poder asistir te pedimos por favor que nos avises con anticipación, ya que nos manejamos con turnos programados.\n\nGracias. 😁',
         imagen: base64Data, // Adjunta la imagen generada en base64
     };
     
